@@ -1,0 +1,6 @@
+ldap3==2.5.1
+lxml==4.3.0
+requests==2.19.1
+future==0.16.0
+beautifulsoup4==4.7.1
+dnspython==1.16.0
