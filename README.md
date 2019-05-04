@@ -4,7 +4,7 @@
 
 Tool to find and extract credentials from phone configuration files in environments managed by Cisco's CUCM (Call Manager).
 
-When using Cisco's CUCM (Call Manager), phone configuration files are stored on a TFTP server. These phone configuration files quite frequently contain sensitive data, including phone SSH/admin credentials.
+When using Cisco's CUCM (Call Manager), phone configuration files are stored on a TFTP server. These VoIP phone configuration files quite frequently contain sensitive data, including phone SSH/admin credentials.
 
 There is also an issue with how some browsers **autofill fields such as the SSH Username & Password fields with their CUCM credentials (commonly their AD credentials)**, if the administrator has saved the credentials in their browser. This issue has also been faced by administrators using password managers that automatically plug in credentials, where they found that their credentials were being automatically inputted into the SSH Username & Password fields, and then being saved (and stored in plaintext in the configuration files).
 
@@ -13,7 +13,7 @@ While the issue was [fixed in CUCM 12.0](https://lists.gt.net/cisco/voip/199231)
 The issue can be somewhat mitigated by the following actions:
 1. Regularly purging existing configuration files from leaked credentials.
 2. Blocking autosave/autofill on CUCM.
-3. Enabling encryption of phone configuration files. Read more on that [here](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/security/8_5_1/secugd/sec-851-cm/secuencp.html). Note that this doesn't completely mitigate the issue, as the encryption password could be obtained from the phones' memory or through administrative access of CUCM.
+3. Enabling encryption of phone configuration files. Read more on that [here](https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/security/8_5_1/secugd/sec-851-cm/secuencp.html). Note that this doesn't completely mitigate the issue, as the encryption password could be obtained from the phones' memory or through administrative access of CUCM - but it reduces the impact of a hacker/pentester dumping the configuraiton files.
 
 This tool utilises a lot of code from [Dirk-jan's tool adidnsdump](https://github.com/dirkjanm/adidnsdump) to extract a list of phone hostnames from ADIDNS over LDAP. To read more aboout the technique and tool, you can read the [associated blog post](https://dirkjanm.io/getting-in-the-zone-dumping-active-directory-dns-with-adidnsdump/). So credit goes to him for a lot of the code.
 
